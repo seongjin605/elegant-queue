@@ -1,6 +1,6 @@
 
 import { Queue } from "../src";
-import { QueueEmptyException } from "../src/exceptions/QueueEmptyException";
+import { EmptyQueueException } from "../src/exceptions/EmptyQueueException";
 
 test('Queue Test', () => {
     const queue = new Queue([1, 2, 3, 4, 5]);
@@ -25,6 +25,6 @@ test('Queue Test', () => {
     expect(queue.isEmpty()).toBe(true);
     expect(queue.size()).toBe(0);
 
-    expect(() => queue.dequeue()).toThrowError(QueueEmptyException);
+    expect(() => queue.dequeue()).toThrowError(EmptyQueueException);
 });
   

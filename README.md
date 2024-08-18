@@ -38,11 +38,11 @@ This method adds a new element to the end of the queue.
 
 ### `dequeue()`
 
-This method removes and returns the element at the front of the queue. If the queue is empty, it throws a `QueueEmptyException`.
+This method removes and returns the element at the front of the queue. If the queue is empty, it throws a `EmptyQueueException`.
 
 ### `peek()`
 
-This method returns the element at the front of the queue without removing it. If the queue is empty, it throws a `QueueEmptyException`.  
+This method returns the element at the front of the queue without removing it. If the queue is empty, it throws a `EmptyQueueException`.  
 
 
 ### `clear()`
@@ -75,11 +75,13 @@ console.log(queue); // [2, 3, 4, 5, 6]
 
 ### Exception Example
 ```typescript
+import { Queue, EmptyQueueException } from "elegant-queue";
+
 try {
     const item = queue.dequeue(); // Attempt to remove the item from the queue.
     console.log('Dequeued item:', item);
 } catch (error) {
-    if (error instanceof QueueEmptyException) {
+    if (error instanceof EmptyQueueException) {
         console.error('Queue is empty. Cannot dequeue an item.');
     } else {
         console.error('An unexpected error occurred:', error);
