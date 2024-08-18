@@ -1,4 +1,4 @@
-# efficient-queue
+# elegant-queue
 
 In general, to use a Queue using JS or TS, it may be more common or simpler to use an Array.
 
@@ -11,18 +11,18 @@ To address this inefficiency when processing large amounts of data, designing a 
 
 ## 📚 Getting Started
 
-`efficient-queue` supports both CommonJS and ES Modules.
+`elegant-queue` supports both CommonJS and ES Modules.
 
 ### CommonJS
 
 ```javascript
-const { Queue } = require("efficient-queue");
+const { Queue } = require("elegant-queue");
 ```
 
 ### ES Modules
 
 ```javascript
-import { Queue } from "efficient-queue";
+import { Queue } from "elegant-queue";
 ```
 
 ## 🔎 Explore features
@@ -62,7 +62,7 @@ This method checks if the queue is empty. It returns `true` if `_head` is equal 
 
 ### Use Example
 ```typescript
-import { Queue } from "efficient-queue";
+import { Queue } from "elegant-queue";
 
 const queue = new Queue([1, 2, 3, 4, 5]);
 queue.enqueue(6); // [1, 2, 3, 4, 5, 6]
