@@ -60,7 +60,7 @@ This method checks if the queue is empty. It returns `true` if `_head` is equal 
 
 ## 🌈 Examples
 
-### Use Case
+### Use Example
 ```typescript
 import { Queue } from "efficient-queue";
 
@@ -73,7 +73,7 @@ console.log(item); // 1
 console.log(queue); // [2, 3, 4, 5, 6]
 ```
 
-### Exception Case
+### Exception Example
 ```typescript
 try {
     const item = queue.dequeue(); // Attempt to remove the item from the queue.
