@@ -88,3 +88,56 @@ try {
     }
 }
 ```
+
+
+## ⚡️ Performance
+The test results below were written on my local PC, so your performance results may vary.  
+But I can assure you that `dequeue()` in **Elegant Queue** is definitely faster on large amounts of data than using `shift()` in the **built-in array**.  
+
+### Array Queue performance:
+```typescript
+    console.time('ArrayQueue Enqueue Time');
+    const numbers: Array<number> = [];
+
+    for (let i = 0; i < LARGE_DATA_SIZE; i++) {
+      arrayQueue.push(i);
+    }
+    console.timeEnd('ArrayQueue Enqueue Time');
+
+    console.time('ArrayQueue Dequeue Time');
+    while (arrayQueue.length > 0) {
+      arrayQueue.shift();
+    }
+    console.timeEnd('ArrayQueue Dequeue Time');
+```
+
+### Array Queue performance result:
+```bash
+  console.time
+    ArrayQueue Dequeue Time: 109907 ms
+```
+
+### Elegant Queue performance:
+```typescript
+    console.time('ElegantQueue Enqueue Time');
+    const numbers = new Array<number>();
+
+    for (let i = 0; i < LARGE_DATA_SIZE; i++) {
+        numbers.push(i);
+    }
+
+    const elegantQueue = new Queue(numbers);
+    console.timeEnd('ElegantQueue Enqueue Time');
+
+    console.time('ElegantQueue Dequeue Time');
+    while (elegantQueue.size() > 0) {
+      elegantQueue.dequeue();
+    }
+    console.timeEnd('ElegantQueue Dequeue Time');
+```
+
+### Elegant Queue performance result:
+```bash
+  console.time
+    ElegantQueue Dequeue Time: 5 ms
+```
