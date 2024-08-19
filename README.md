@@ -1,5 +1,14 @@
 # elegant-queue
 
+<p align="center">
+    <a href="https://img.shields.io/npm/v/elegant-queue?logo=nodedotjs" target="_blank"><img src="https://img.shields.io/npm/v/elegant-queue?logo=npm" alt="NPM Version" /></a>
+    <a href="https://img.shields.io/npm/l/elegant-queue" target="_blank"><img src="https://img.shields.io/npm/l/elegant-queue" alt="Package License" /></a>
+    <a href="https://img.shields.io/npm/dm/elegant-queue" target="_blank"><img src="https://img.shields.io/npm/dm/elegant-queue" alt="NPM Downloads" /></a>
+    <a href="https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square" target="_blank"><img src="https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square" alt="Javascript" /></a>
+    <a href="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" target="_blank"><img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" alt="Javascript" /></a>
+    <!--<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/seongjin605/elegant-queue/main" alt="CircleCI" /></a>-->
+</p>
+
 In general, to use a Queue using JS or TS, it may be more common or simpler to use an Array.
 
 Let's take a look at the [Description](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift#return_value) of the `shift()` function as described by MSDN  
