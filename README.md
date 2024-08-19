@@ -90,7 +90,7 @@ try {
 ```
 
 
-## ⚡️ Performance
+## ⚡️ Performance (1 million numbers)
 The test results below were written on my local PC, so your performance results may vary.  
 But I can assure you that `dequeue()` in **Elegant Queue** is definitely faster on large amounts of data than using `shift()` in the **built-in array**.  
 
