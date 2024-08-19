@@ -96,19 +96,19 @@ But I can assure you that `dequeue()` in **Elegant Queue** is definitely faster 
 
 ### Array Queue performance:
 ```typescript
-    console.time('ArrayQueue Enqueue Time');
-    const numbers: Array<number> = [];
+console.time('ArrayQueue Enqueue Time');
+const numbers: Array<number> = [];
 
-    for (let i = 0; i < LARGE_DATA_SIZE; i++) {
-      arrayQueue.push(i);
-    }
-    console.timeEnd('ArrayQueue Enqueue Time');
+for (let i = 0; i < LARGE_DATA_SIZE; i++) {
+  arrayQueue.push(i);
+}
+console.timeEnd('ArrayQueue Enqueue Time');
 
-    console.time('ArrayQueue Dequeue Time');
-    while (arrayQueue.length > 0) {
-      arrayQueue.shift();
-    }
-    console.timeEnd('ArrayQueue Dequeue Time');
+console.time('ArrayQueue Dequeue Time');
+while (arrayQueue.length > 0) {
+  arrayQueue.shift();
+}
+console.timeEnd('ArrayQueue Dequeue Time');
 ```
 
 ### Array Queue performance result:
@@ -119,21 +119,21 @@ But I can assure you that `dequeue()` in **Elegant Queue** is definitely faster 
 
 ### Elegant Queue performance:
 ```typescript
-    console.time('ElegantQueue Enqueue Time');
-    const numbers = new Array<number>();
+console.time('ElegantQueue Enqueue Time');
+const numbers = new Array<number>();
 
-    for (let i = 0; i < LARGE_DATA_SIZE; i++) {
-        numbers.push(i);
-    }
+for (let i = 0; i < LARGE_DATA_SIZE; i++) {
+    numbers.push(i);
+}
 
-    const elegantQueue = new Queue(numbers);
-    console.timeEnd('ElegantQueue Enqueue Time');
+const elegantQueue = new Queue(numbers);
+console.timeEnd('ElegantQueue Enqueue Time');
 
-    console.time('ElegantQueue Dequeue Time');
-    while (elegantQueue.size() > 0) {
-      elegantQueue.dequeue();
-    }
-    console.timeEnd('ElegantQueue Dequeue Time');
+console.time('ElegantQueue Dequeue Time');
+while (elegantQueue.size() > 0) {
+  elegantQueue.dequeue();
+}
+console.timeEnd('ElegantQueue Dequeue Time');
 ```
 
 ### Elegant Queue performance result:
