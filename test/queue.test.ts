@@ -1,36 +1,39 @@
-
-import { Queue } from "../src";
-import { EmptyQueueException } from "../src/exceptions/EmptyQueueException";
+import { Queue } from '../src';
+import { EmptyQueueException } from '../src/exceptions/EmptyQueueException';
 
 describe('Queue Test', () => {
-    test('Queue Logic Test', () => {
-        const queue = new Queue([1, 2, 3, 4, 5]);
-        console.log(queue);
-        expect(queue.size()).toBe(5);
-    
-        queue.enqueue(6);
-        expect(queue.size()).toBe(6);
-    
-        expect(queue.dequeue()).toBe(1);
-        expect(queue.size()).toBe(5);
-    
-        expect(queue.peek()).toBe(2);
-        expect(queue.size()).toBe(5);
-    
-        expect(queue.dequeue()).toBe(2);
-        expect(queue.size()).toBe(4);
-    
-        queue.clear();
-        expect(queue.size()).toBe(0);
-    
-        expect(queue.isEmpty()).toBe(true);
-        expect(queue.size()).toBe(0);
-    
-        expect(() => queue.dequeue()).toThrowError(EmptyQueueException);
-    });
-});
+  test('Queue Logic Test', () => {
+    const queue = new Queue<number>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.enqueue(4);
+    queue.enqueue(5);
 
-  
+    console.log(queue);
+    expect(queue.size()).toBe(5);
+
+    queue.enqueue(6);
+    expect(queue.size()).toBe(6);
+
+    expect(queue.dequeue()).toBe(1);
+    expect(queue.size()).toBe(5);
+
+    expect(queue.peek()).toBe(2);
+    expect(queue.size()).toBe(5);
+
+    expect(queue.dequeue()).toBe(2);
+    expect(queue.size()).toBe(4);
+
+    queue.clear();
+    expect(queue.size()).toBe(0);
+
+    expect(queue.isEmpty()).toBe(true);
+    expect(queue.size()).toBe(0);
+
+    expect(() => queue.dequeue()).toThrowError(EmptyQueueException);
+  });
+});
 
 const LARGE_DATA_SIZE = 1_000_000;
 
@@ -53,13 +56,12 @@ describe('Queue Performance Comparison', () => {
 
   it('ElegantQueue performance', () => {
     console.time('ElegantQueue Enqueue Time');
-    const numbers: Array<number> = [];
+    const elegantQueue = new Queue<number>();
 
     for (let i = 0; i < LARGE_DATA_SIZE; i++) {
-        numbers.push(i);
+      elegantQueue.enqueue(i);
     }
 
-    const elegantQueue = new Queue(numbers);
     console.timeEnd('ElegantQueue Enqueue Time');
 
     console.time('ElegantQueue Dequeue Time');

@@ -1,11 +1,12 @@
 {
   "name": "elegant-queue",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "To address this inefficiency when processing large amounts of data, designing a queue with O(1) time complexity can solve many problems.",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
   "types": "dist/mjs/index.d.ts",
   "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "build": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && bash ./fixup",
     "prepare": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && bash ./fixup && husky install",
     "test": "jest",

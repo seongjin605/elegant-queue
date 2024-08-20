@@ -4,18 +4,23 @@
     <a href="https://img.shields.io/npm/v/elegant-queue?logo=nodedotjs" target="_blank"><img src="https://img.shields.io/npm/v/elegant-queue?logo=npm" alt="NPM Version" /></a>
     <a href="https://img.shields.io/npm/l/elegant-queue" target="_blank"><img src="https://img.shields.io/npm/l/elegant-queue" alt="Package License" /></a>
     <a href="https://img.shields.io/npm/dm/elegant-queue" target="_blank"><img src="https://img.shields.io/npm/dm/elegant-queue" alt="NPM Downloads" /></a>
-    <a href="https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square" target="_blank"><img src="https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square" alt="Javascript" /></a>
-    <a href="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" target="_blank"><img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" alt="Javascript" /></a>
-    <!--<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/seongjin605/elegant-queue/main" alt="CircleCI" /></a>-->
+    <a href="https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square" target="_blank"><img src="https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square" alt="JavaScript" /></a>
+    <a href="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" target="_blank"><img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" alt="TypeScript" /></a>
 </p>
 
-In general, to use a Queue using JS or TS, it may be more common or simpler to use an Array.
+## Overview
 
-Let's take a look at the [Description](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift#return_value) of the `shift()` function as described by MSDN  
-"The shift() method removes the element at the zeroth index and shifts the values at consecutive indexes down, then returns the removed value. If the length property is 0, undefined is returned."
+In JavaScript and TypeScript, arrays are often used to implement queues. The built-in `shift()` method removes the element at the zeroth index and shifts the remaining elements down, which has O(n) time complexity due to the re-indexing required.
 
-As you can see, using a queue with O(N) time complexity or using `shift()` to get the first value in an array has O(N) time complexity.  
-To address this inefficiency when processing large amounts of data, designing a queue with O(1) time complexity can solve many problems.  
+### Why Circular Buffers?
+
+To optimize queue operations, especially with large datasets, a circular buffer is a highly effective solution. It allows both `enqueue` and `dequeue` operations to be performed in O(1) time complexity by managing elements in a fixed-size array with wrapping pointers.
+
+**Key Benefits:**
+
+- **Memory Efficiency:** A circular buffer uses a fixed-size array and wraps around, eliminating the need for continuous resizing and minimizing memory overhead.
+- **Consistent O(1) Performance:** Operations remain constant time, avoiding the performance pitfalls of array resizing and shifting.
+- **Avoids Memory Fragmentation:** Efficient memory use and reduced risk of fragmentation, even with dynamic queue sizes.
 
 
 ## 📚 Getting Started
@@ -69,7 +74,7 @@ This method checks if the queue is empty. It returns `true` if `_head` is equal 
 
 ## 🌈 Examples
 
-### Use Example
+### Usage Example  
 ```typescript
 import { Queue } from "elegant-queue";
 
@@ -82,7 +87,7 @@ console.log(item); // 1
 console.log(queue); // [2, 3, 4, 5, 6]
 ```
 
-### Exception Example
+### Exception Handling Example  
 ```typescript
 import { Queue, EmptyQueueException } from "elegant-queue";
 
@@ -100,8 +105,7 @@ try {
 
 
 ## ⚡️ Performance (1 million numbers)
-The test results below were written on my local PC, so your performance results may vary.  
-But I can assure you that `dequeue()` in **Elegant Queue** is definitely faster on large amounts of data than using `shift()` in the **built-in array**.  
+The following benchmarks compare elegant-queue with a standard array-based queue.  
 
 ### Array Queue performance:
 ```typescript
@@ -150,3 +154,5 @@ console.timeEnd('ElegantQueue Dequeue Time');
   console.time
     ElegantQueue Dequeue Time: 5 ms
 ```
+
+**Note:** The `shift()` method in arrays has O(n) time complexity due to the need to re-index elements after removal. In contrast, `elegant-queue` provides O(1) time complexity for both enqueue and dequeue operations by utilizing a circular buffer design, making it significantly faster for large datasets.  
