@@ -22,6 +22,10 @@ export class Queue<T> {
    * @param arraySize The size of each array block (default: 4096).
    */
   constructor(arraySize: number = 4096) {
+    if (typeof arraySize !== 'number' || isNaN(arraySize) || arraySize <= 0) {
+      throw new TypeError('arraySize must be a positive number.');
+    }
+  
     this._arraySize = arraySize;
   }
 

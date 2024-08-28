@@ -41,9 +41,9 @@ import { Queue } from "elegant-queue";
 
 ## 🔎 Explore features
 
-### `constructor(array: T[])`
+### `constructor(arraySize: number)`
 
-The constructor initializes a new queue with the elements from the provided `array`. 
+`arraySize: number` (optional): This parameter defines the size of each internal array block within the linked nodes of the queue. It specifies how many elements each node in the queue can hold. By default, this value is set to 4096 if no argument is provided.
 
 
 ### `enqueue(value: T)`
