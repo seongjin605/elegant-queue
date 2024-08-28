@@ -1,6 +1,6 @@
 {
   "name": "elegant-queue",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "To address this inefficiency when processing large amounts of data, designing a queue with O(1) time complexity can solve many problems.",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
