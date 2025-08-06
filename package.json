@@ -11,7 +11,8 @@
     "prepare": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && bash ./fixup && husky install",
     "test": "jest",
     "lint": "eslint '{src,test}/**/*.ts' --fix",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "deploy": "npm run build && npm version patch && npm publish"
   },
   "exports": {
     ".": {
@@ -38,7 +39,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.15",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "@types/lodash": "^4.14.199",
     "@typescript-eslint/eslint-plugin": "^8.0.1",
     "@typescript-eslint/parser": "^8.0.1",

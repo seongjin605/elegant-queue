@@ -6,9 +6,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "inlineSourceMap": false,
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "listEmittedFiles": false,
     "listFiles": false,
     "moduleResolution": "node",
@@ -19,18 +17,9 @@
     "skipLibCheck": true,
     "strict": true,
     "traceResolution": false,
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"]
   },
   "compileOnSave": false,
-  "exclude": [
-    "node_modules",
-    "dist",
-    "test"
-  ],
-  "include": [
-    "src"
-  ]
+  "exclude": ["node_modules", "dist", "test"],
+  "include": ["src"]
 }
